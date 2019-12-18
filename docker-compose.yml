@@ -1,0 +1,12 @@
+version: '2'
+services:
+  server:
+    image: nginx:1.15
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./site:/usr/share/nginx/html
+      - ./nginx/drdave.local.crt:/etc/nginx/drdave.local.crt
+      - ./nginx/drdave.local.key:/etc/nginx/drdave.local.key
+    ports:
+    - "80:80"
+    - "443:443"
